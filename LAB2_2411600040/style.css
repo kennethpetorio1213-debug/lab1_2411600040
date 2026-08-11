@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f3f5;
+    background-color: #D9FFF4;
     color: #2c3e50;
     line-height: 1.6;
     padding: 20px;
@@ -53,14 +53,14 @@ nav a:hover {
 
 /* Main Content Styles */
 main {
-    background-color: white;
+    background-color: #65DCD5;
     padding: 30px;
     border-radius: 0 0 10px 10px;
     margin-bottom: 20px;
 }
 
 section {
-    background-color: #f8f9fa;
+    background-color: #D9FFF4;
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 8px;
@@ -70,7 +70,7 @@ section {
 section h2 {
     color: #321E48;
     margin-bottom: 15px;
-    border-bottom: 2px solid #d4e6f1;
+    border-bottom: 2px solid #43637E;
     padding-bottom: 10px;
 }
 
@@ -116,11 +116,11 @@ ul li {
 }
 
 .project-item {
-    background-color: #f8f9fa;
+    background-color: #D9FFF4;
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #d4e6f1;
+    border: 1px solid #43637E;
 }
 
 .project-item h3 {
