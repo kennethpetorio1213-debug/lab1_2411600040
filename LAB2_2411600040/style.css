@@ -7,15 +7,15 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #D9FFF4;
-    color: #2c3e50;
+    background-color:#EFE1D1;
+    color: #331D2C;
     line-height: 1.6;
     padding: 20px;
 }
 
 /* Header Styles */
 header {
-    background-color: #321E48;
+    background-color: #331D2C;
     color: white;
     padding: 30px 20px;
     text-align: center;
@@ -29,7 +29,7 @@ header h1 {
 
 /* Navigation Styles */
 nav {
-    background-color: #43637E;
+    background-color: #3F2E3E;
     padding: 15px 20px;
     display: flex;
     justify-content: center;
@@ -47,50 +47,50 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #65DCD5;
+    background-color: #EFE1D1;
     color: white;
 }
 
 /* Main Content Styles */
 main {
-    background-color: #65DCD5;
+    background-color: #A78295;
     padding: 30px;
     border-radius: 0 0 10px 10px;
     margin-bottom: 20px;
 }
 
 section {
-    background-color: #D9FFF4;
+    background-color:#EFE1D1;
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 8px;
-    border-left: 5px solid #65DCD5;
+    border-left: 5px solid #3F2E3E;
 }
 
 section h2 {
-    color: #321E48;
+    color: #331D2C;
     margin-bottom: 15px;
-    border-bottom: 2px solid #43637E;
+    border-bottom: 2px solid #3F2E3E;
     padding-bottom: 10px;
 }
 
 /* Aside Styles */
 aside {
-    background-color: #65DCD5;
+    background-color:#A78295;
     padding: 25px;
     border-radius: 8px;
     margin-bottom: 20px;
-    border: 2px solid #43637E;
+    border: 2px solid #3F2E3E;
 }
 
 aside h3 {
-    color: #321E48;
+    color: #331D2C;
     margin-bottom: 10px;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #321E48;
+    background-color: #331D2C;
     color: white;
     text-align: center;
     padding: 20px;
@@ -106,30 +106,30 @@ ul {
 
 ul li {
     margin: 8px 0;
-    color: #2c3e50;
+    color: #331D2C;
 }
 
 /* Custom Classes */
 .highlight {
-    color: #e67e22;
+    color: #331D2C;
     font-weight: bold;
 }
 
 .project-item {
-    background-color: #D9FFF4;
+    background-color: #EFE1D1;
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #43637E;
+    border: 1px solid #3F2E3E;
 }
 
 .project-item h3 {
-    color: #321E48;
+    color: #331D2C;
 }
 
 .button {
     display: inline-block;
-    background-color: #e67e22;
+    background-color: #331D2C;
     color: white;
     padding: 8px 20px;
     border-radius: 5px;
@@ -139,5 +139,5 @@ ul li {
 }
 
 .button:hover {
-    background-color: #d35400;
+    background-color: #3F2E3E;
 }
