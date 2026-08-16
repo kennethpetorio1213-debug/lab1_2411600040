@@ -43,10 +43,10 @@ function updateGreeting(username) {
 
 function updateStatistics() {
     const stats = [
-        { title: 'GPA', value: '3.75', color: 'text-primary', icon: '🎓' },
-        { title: 'Courses', value: '6', color: 'text-success', icon: '📚' },
-        { title: 'Assignments', value: '12', color: 'text-info', icon: '📝' },
-        { title: 'Attendance', value: '94%', color: 'text-warning', icon: '✅' }
+        { title: 'Steps', value: '8,542', color: 'text-primary', icon: '👣' },
+        { title: 'Calories', value: '1,860', color: 'text-success', icon: '🔥'},
+        { title: 'Workouts', value: '4', color: 'text-info', icon: '💪'},
+        { title: 'Heart Rate', value: '72 bpm', color: 'text-warning', icon: '❤️'}
     ];
 
     const cardTitles = document.querySelectorAll('[id^="stat"][id$="-title"]');
@@ -72,12 +72,12 @@ function populateActivityTable() {
     if (!tableBody) return;
 
     const activities = [
-        { date: '2026-08-10 14:30', activity: 'Assignment submitted: Data Structures Project', status: 'success' },
-        { date: '2026-08-10 13:15', activity: 'Grade posted for Midterm Exam - Calculus II', status: 'info' },
-        { date: '2026-08-10 11:45', activity: 'Enrollment updated for Fall semester courses', status: 'warning' },
-        { date: '2026-08-10 09:00', activity: 'New announcement from Computer Science Dept.', status: 'success' },
-        { date: '2026-08-09 16:20', activity: 'Tuition payment received for Semester 1', status: 'success' },
-        { date: '2026-08-09 14:10', activity: 'Late submission flagged for Lab Report 3', status: 'danger' }
+        { date: '2026-08-10 14:30', activity: 'Completed 5k run - 30 minutes', status: 'success' },
+        { date: '2026-08-10 13:15', activity: 'Daily step goal reached - 10,000 steps', status: 'info' },
+        { date: '2026-08-10 11:45', activity: 'Missed scheduled workout - Leg day', status: 'warning' },
+        { date: '2026-08-10 09:00', activity: 'New personal record achieved: Pull-ups 20', status: 'success' },
+        { date: '2026-08-09 16:20', activity: 'Logged 45-mins yoga session', status: 'success' },
+        { date: '2026-08-09 14:10', activity: 'Heart rate spike detected during workout', status: 'danger' }
     ];
 
     tableBody.innerHTML = '';
