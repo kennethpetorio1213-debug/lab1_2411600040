@@ -72,12 +72,12 @@ function populateActivityTable() {
     if (!tableBody) return;
 
     const activities = [
-        { date: '2026-08-10', activity: 'Completed 5k run - 30 minutes', status: 'completed'},
+        { date: '2026-08-8', activity: 'Completed 5k run - 30 minutes', status: 'completed'},
         { date: '2026-08-10', activity: 'Daily step goal reached - 10,000 steps', status: 'info'},
-        { date: '2026-08-10', activity: 'Missed scheduled workout - Leg day', status: 'failure'},
-        { date: '2026-08-10', activity: 'New personal record achieved: Pull-ups 20', status: 'completed'},
-        { date: '2026-08-11', activity: 'Logged 45-mins yoga session', status: 'completed'},
-        { date: '2026-08-11', activity: 'Heart rate spike detected during workout', status: 'risk'}
+        { date: '2026-08-11', activity: 'Missed scheduled workout - Leg day', status: 'failure'},
+        { date: '2026-08-12', activity: 'New personal record achieved: Pull-ups 20', status: 'completed'},
+        { date: '2026-08-13', activity: 'High intensity whole body workout', status: 'completed'},
+        { date: '2026-08-13', activity: 'Heart rate spike detected during workout', status: 'risk'}
     ];
 
     tableBody.innerHTML = '';

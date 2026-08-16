@@ -1,20 +1,20 @@
 :root {
-    --bs-primary: #331d2c;
-    --bs-primary-rgb: 51, 29, 44;
-    --bs-secondary: #3f2e3e;
-    --bs-secondary-rgb: 63, 46, 62;
+    --bs-primary: #565264;
+    --bs-primary-rgb: 86, 82, 100;
+    --bs-secondary: #706677;
+    --bs-secondary-rgb: 112, 102, 119;
     --bs-completed: #28a745;
     --bs-info: #17a2b8;
     --bs-warning: #f3a712;
     --bs-risk: #dc3545;
 
     /* Custom Theme Colors */
-    --theme-primary: #331d2c;
-    --theme-secondary: #3f2e3e;
-    --theme-accent: #a78295;
-    --theme-background: #efe1d1;
-    --theme-light-accent: #efe1d1;
-    --theme-text: #331d2c;
+    --theme-primary: #565264;
+    --theme-secondary: #a6808c;
+    --theme-accent: #706677; 
+    --theme-background: #d6cfcb;
+    --theme-light-accent: #ccb7ae;
+    --theme-text: #565264;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 }
 
 .login-page {
-    background: linear-gradient(135deg, var(--theme-background), var(--theme-accent));
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
     min-height: 100vh;
 }
 
@@ -114,7 +114,7 @@ body {
 }
 
 .border-success-custom {
-    border-left: 4px solid var(--bs-success);
+    border-left: 4px solid var(--bs-completed);
 }
 
 .bg-gradient-primary {
@@ -135,8 +135,8 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #21121b;
-    border-color: #21121b;
+    background-color: #423f4c;
+    border-color: #423f4c;
 }
 
 @media (max-width: 768px) {
