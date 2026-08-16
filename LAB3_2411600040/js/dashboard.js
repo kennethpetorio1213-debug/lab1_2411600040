@@ -72,12 +72,12 @@ function populateActivityTable() {
     if (!tableBody) return;
 
     const activities = [
-        { date: '2026-08-10 14:30', activity: 'Completed 5k run - 30 minutes', status: 'success' },
-        { date: '2026-08-10 13:15', activity: 'Daily step goal reached - 10,000 steps', status: 'info' },
-        { date: '2026-08-10 11:45', activity: 'Missed scheduled workout - Leg day', status: 'warning' },
-        { date: '2026-08-10 09:00', activity: 'New personal record achieved: Pull-ups 20', status: 'success' },
-        { date: '2026-08-09 16:20', activity: 'Logged 45-mins yoga session', status: 'success' },
-        { date: '2026-08-09 14:10', activity: 'Heart rate spike detected during workout', status: 'danger' }
+        { date: '2026-08-10', activity: 'Completed 5k run - 30 minutes', status: 'completed'},
+        { date: '2026-08-10', activity: 'Daily step goal reached - 10,000 steps', status: 'info'},
+        { date: '2026-08-10', activity: 'Missed scheduled workout - Leg day', status: 'failure'},
+        { date: '2026-08-10', activity: 'New personal record achieved: Pull-ups 20', status: 'completed'},
+        { date: '2026-08-11', activity: 'Logged 45-mins yoga session', status: 'completed'},
+        { date: '2026-08-11', activity: 'Heart rate spike detected during workout', status: 'risk'}
     ];
 
     tableBody.innerHTML = '';
@@ -86,9 +86,9 @@ function populateActivityTable() {
         const row = document.createElement('tr');
 
         let badgeClass = 'bg-secondary';
-        if (activity.status === 'success') badgeClass = 'bg-success';
-        else if (activity.status === 'warning') badgeClass = 'bg-warning text-dark';
-        else if (activity.status === 'danger') badgeClass = 'bg-danger';
+        if (activity.status === 'completed') badgeClass = 'bg-success';
+        else if (activity.status === 'failure') badgeClass = 'bg-warning text-dark';
+        else if (activity.status === 'risk') badgeClass = 'bg-danger';
         else if (activity.status === 'info') badgeClass = 'bg-info text-dark';
 
         row.innerHTML = `

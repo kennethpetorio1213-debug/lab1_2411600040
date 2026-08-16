@@ -1,20 +1,20 @@
 :root {
-    --bs-primary: #0d5c3e;
-    --bs-primary-rgb: 13, 92, 62;
-    --bs-secondary: #1a936f;
-    --bs-secondary-rgb: 26, 147, 111;
-    --bs-success: #28a745;
+    --bs-primary: #331d2c;
+    --bs-primary-rgb: 51, 29, 44;
+    --bs-secondary: #3f2e3e;
+    --bs-secondary-rgb: 63, 46, 62;
+    --bs-completed: #28a745;
     --bs-info: #17a2b8;
     --bs-warning: #f3a712;
-    --bs-danger: #dc3545;
+    --bs-risk: #dc3545;
 
     /* Custom Theme Colors */
-    --theme-primary: #0d5c3e;
-    --theme-secondary: #1a936f;
-    --theme-accent: #f3a712;
-    --theme-background: #f0f7f4;
-    --theme-light-accent: #d4ece4;
-    --theme-text: #1a2e24;
+    --theme-primary: #331d2c;
+    --theme-secondary: #3f2e3e;
+    --theme-accent: #a78295;
+    --theme-background: #efe1d1;
+    --theme-light-accent: #efe1d1;
+    --theme-text: #331d2c;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 }
 
 .login-page {
-    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary));
+    background: linear-gradient(135deg, var(--theme-background), var(--theme-accent));
     min-height: 100vh;
 }
 
@@ -135,8 +135,8 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #0a4a32;
-    border-color: #0a4a32;
+    background-color: #21121b;
+    border-color: #21121b;
 }
 
 @media (max-width: 768px) {
