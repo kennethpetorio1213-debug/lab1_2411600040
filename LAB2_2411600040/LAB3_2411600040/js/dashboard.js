@@ -43,10 +43,10 @@ function updateGreeting(username) {
 
 function updateStatistics() {
     const stats = [
-        { title: 'Total Orders', value: '1,284', color: 'text-primary', icon: '📦' },
-        { title: 'Revenue', value: '$45,230', color: 'text-success', icon: '💰' },
-        { title: 'New Customers', value: '342', color: 'text-info', icon: '👥' },
-        { title: 'Return Rate', value: '2.4%', color: 'text-warning', icon: '📊' }
+        { title: 'GPA', value: '3.75', color: 'text-primary', icon: '🎓' },
+        { title: 'Courses', value: '6', color: 'text-success', icon: '📚' },
+        { title: 'Assignments', value: '12', color: 'text-info', icon: '📝' },
+        { title: 'Attendance', value: '94%', color: 'text-warning', icon: '✅' }
     ];
 
     const cardTitles = document.querySelectorAll('[id^="stat"][id$="-title"]');
@@ -72,12 +72,12 @@ function populateActivityTable() {
     if (!tableBody) return;
 
     const activities = [
-        { date: '2026-08-10 14:30', activity: 'New order received #ORD-4532', status: 'success' },
-        { date: '2026-08-10 13:15', activity: 'Customer support ticket resolved', status: 'info' },
-        { date: '2026-08-10 11:45', activity: 'Product inventory updated', status: 'warning' },
-        { date: '2026-08-10 09:00', activity: 'New customer signed up', status: 'success' },
-        { date: '2026-08-09 16:20', activity: 'Payment received for invoice #INV-312', status: 'success' },
-        { date: '2026-08-09 14:10', activity: 'Shipping delay reported for order #ORD-4521', status: 'danger' }
+        { date: '2026-08-10 14:30', activity: 'Assignment submitted: Data Structures Project', status: 'success' },
+        { date: '2026-08-10 13:15', activity: 'Grade posted for Midterm Exam - Calculus II', status: 'info' },
+        { date: '2026-08-10 11:45', activity: 'Enrollment updated for Fall semester courses', status: 'warning' },
+        { date: '2026-08-10 09:00', activity: 'New announcement from Computer Science Dept.', status: 'success' },
+        { date: '2026-08-09 16:20', activity: 'Tuition payment received for Semester 1', status: 'success' },
+        { date: '2026-08-09 14:10', activity: 'Late submission flagged for Lab Report 3', status: 'danger' }
     ];
 
     tableBody.innerHTML = '';
