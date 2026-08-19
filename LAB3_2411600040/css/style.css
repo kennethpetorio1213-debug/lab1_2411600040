@@ -97,10 +97,6 @@ body {
     margin-bottom: 0;
 }
 
-.shadow-hover:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-}
-
 .btn-primary {
     background-color: var(--theme-primary);
     border-color: var(--theme-primary);

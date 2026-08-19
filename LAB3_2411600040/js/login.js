@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const feedbackDiv = document.getElementById('loginFeedback');
-
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        window.location.href = 'dashboard.html';
+    const savedUsername = localStorage.getItem('rememberedUsername');
+   
+    if (savedUsername) {
+        usernameInput.value = savedUsername;
+        rememberMe.checked = true;
     }
 
     loginBtn.addEventListener('click', function() {
@@ -24,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const validPassword = 'password123';
 
         if (username === validUsername && password === validPassword) {
+           
+           if (rememberMe.checked) {
+                localStorage.setItem('rememberedUsername', username);
+            } else {
+                localStorage.removeItem('rememberedUsername');
+            }
+           
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('user', username);
 
