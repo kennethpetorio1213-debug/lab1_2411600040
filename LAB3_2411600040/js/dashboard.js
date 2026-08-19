@@ -49,9 +49,6 @@ function updateStatistics() {
         { title: 'Heart Rate', value: '72 bpm', color: 'text-warning', icon: '❤️'}
     ];
 
-    const cardTitles = document.querySelectorAll('[id^="stat"][id$="-title"]');
-    const cardValues = document.querySelectorAll('[id^="stat"][id$="-value"]');
-
     stats.forEach((stat, index) => {
         const titleElement = document.getElementById(`stat${index + 1}-title`);
         const valueElement = document.getElementById(`stat${index + 1}-value`);
