@@ -19,6 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (userNameSpan) {
         userNameSpan.textContent = username;
     }
+
+    // Lab 4 additions
+    DataManager.initializeData();
+    renderExerciseTable(DataManager.getExercises());
+    renderAlerts();
+    renderAllCharts();
+    setupFilterListeners();
+    setupSearchListener();
+    setupExportButton();
+    startRealtimeSimulation();
 });
 
 function updateGreeting(username) {
@@ -115,4 +125,157 @@ function setupLogout() {
     if (logoutLink) {
         logoutLink.addEventListener('click', performLogout);
     }
+}
+
+// ===== Lab 4: Exercise Library Table =====
+function renderExerciseTable(exercises) {
+    const tableBody = document.getElementById('exerciseTableBody');
+    if (!tableBody) return;
+
+    tableBody.innerHTML = '';
+
+    exercises.forEach(ex => {
+        const row = document.createElement('tr');
+        row.classList.add('border-accent');
+        if (ex.status === 'Behind') row.classList.add('table-warning');
+
+        let badgeClass = 'bg-secondary';
+        if (ex.status === 'Completed') badgeClass = 'bg-success';
+        else if (ex.status === 'On Track') badgeClass = 'bg-info text-dark';
+        else if (ex.status === 'Behind') badgeClass = 'bg-danger';
+
+        row.innerHTML = `
+            <td>${ex.name}</td>
+            <td>${ex.category}</td>
+            <td>${ex.sessionsCompleted} / ${ex.weeklyGoal}</td>
+            <td>${ex.caloriesPerSession}</td>
+            <td>${ex.totalCalories}</td>
+            <td><span class="badge ${badgeClass}">${ex.status}</span></td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
+
+function renderAlerts() {
+    const alertsContainer = document.getElementById('alertsContainer');
+    if (!alertsContainer) return;
+
+    const behindExercises = DataManager.getBehindGoalExercises();
+    alertsContainer.innerHTML = '';
+
+    if (behindExercises.length === 0) {
+        alertsContainer.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                Great job! You're on track with all your exercise goals.
+            </div>
+        `;
+        return;
+    }
+
+    const names = behindExercises.map(ex => ex.name).join(', ');
+    alertsContainer.innerHTML = `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Behind on goal:</strong> ${names}. Keep pushing to catch up this week!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+}
+
+function refreshDashboardData() {
+    const filtered = DataManager.applyFilters();
+    renderExerciseTable(filtered);
+    renderAlerts();
+    renderAllCharts();
+}
+
+function setupFilterListeners() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    const statusButtons = document.querySelectorAll('.status-filter-btn');
+    const minCaloriesInput = document.getElementById('minCalories');
+    const maxCaloriesInput = document.getElementById('maxCalories');
+    const applyBtn = document.getElementById('applyFiltersBtn');
+    const resetBtn = document.getElementById('resetFiltersBtn');
+
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', function() {
+            DataManager.filterByCategory(this.value);
+        });
+    }
+
+    statusButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            statusButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            DataManager.filterByStatus(this.dataset.status);
+        });
+    });
+
+    if (applyBtn) {
+        applyBtn.addEventListener('click', function() {
+            const min = minCaloriesInput.value ? parseFloat(minCaloriesInput.value) : null;
+            const max = maxCaloriesInput.value ? parseFloat(maxCaloriesInput.value) : null;
+            DataManager.filterByCaloriesRange(min, max);
+            renderExerciseTable(DataManager.applyFilters());
+        });
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            DataManager.resetFilters();
+            if (categoryFilter) categoryFilter.value = 'all';
+            statusButtons.forEach(b => b.classList.remove('active'));
+            document.querySelector('.status-filter-btn[data-status="all"]')?.classList.add('active');
+            if (minCaloriesInput) minCaloriesInput.value = '';
+            if (maxCaloriesInput) maxCaloriesInput.value = '';
+            document.getElementById('searchInput').value = '';
+            renderExerciseTable(DataManager.getExercises());
+        });
+    }
+}
+
+function setupSearchListener() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function() {
+        DataManager.searchExercises(this.value);
+        renderExerciseTable(DataManager.applyFilters());
+    });
+}
+
+function setupExportButton() {
+    const exportBtn = document.getElementById('exportCsvBtn');
+    if (!exportBtn) return;
+
+    exportBtn.addEventListener('click', function() {
+        const data = DataManager.applyFilters();
+        const csvContent = DataManager.exportToCSV(data);
+        DataManager.downloadCSV(csvContent, 'exercise_library.csv');
+    });
+}
+
+function startRealtimeSimulation() {
+    setInterval(function() {
+        const updated = DataManager.simulateSessionUpdate();
+        refreshDashboardData();
+        showToastNotification(`${updated.name} session logged! Total sessions: ${updated.sessionsCompleted}`);
+    }, 15000);
+}
+
+function showToastNotification(message) {
+    const toastContainer = document.getElementById('toastContainer');
+    if (!toastContainer) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast align-items-center text-white bg-primary border-0 show';
+    toast.setAttribute('role', 'alert');
+    toast.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    `;
+    toastContainer.appendChild(toast);
+    setTimeout(() => toast.remove(), 5000);
 }

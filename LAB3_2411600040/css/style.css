@@ -135,3 +135,29 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--theme-primary);
 }
+
+.chart-card .card-body {
+    position: relative;
+}
+
+.filter-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.status-filter-btn.active {
+    background-color: var(--theme-primary);
+    color: #ffffff;
+    border-color: var(--theme-primary);
+}
+
+.toast {
+    min-width: 280px;
+}
+
+@media (max-width: 768px) {
+    .chart-card .card-body {
+        height: 220px !important;
+    }
+}
