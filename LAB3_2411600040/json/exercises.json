@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Morning Run",
+        "category": "Cardio",
+        "sessionsCompleted": 9,
+        "weeklyGoal": 10,
+        "caloriesPerSession": 320
+    },
+    {
+        "id": 2,
+        "name": "Cycling",
+        "category": "Cardio",
+        "sessionsCompleted": 5,
+        "weeklyGoal": 6,
+        "caloriesPerSession": 280
+    },
+    {
+        "id": 3,
+        "name": "Bench Press",
+        "category": "Strength",
+        "sessionsCompleted": 3,
+        "weeklyGoal": 4,
+        "caloriesPerSession": 180
+    },
+    {
+        "id": 4,
+        "name": "Squats",
+        "category": "Strength",
+        "sessionsCompleted": 4,
+        "weeklyGoal": 4,
+        "caloriesPerSession": 220
+    },
+    {
+        "id": 5,
+        "name": "Plank",
+        "category": "Core",
+        "sessionsCompleted": 5,
+        "weeklyGoal": 5,
+        "caloriesPerSession": 90
+    },
+    {
+        "id": 6,
+        "name": "Sit-Ups",
+        "category": "Core",
+        "sessionsCompleted": 2,
+        "weeklyGoal": 5,
+        "caloriesPerSession": 80
+    },
+    {
+        "id": 7,
+        "name": "Yoga",
+        "category": "Flexibility",
+        "sessionsCompleted": 5,
+        "weeklyGoal": 3,
+        "caloriesPerSession": 150
+    },
+    {
+        "id": 8,
+        "name": "Stretching",
+        "category": "Flexibility",
+        "sessionsCompleted": 1,
+        "weeklyGoal": 4,
+        "caloriesPerSession": 60
+    },
+    {
+        "id": 9,
+        "name": "Swimming",
+        "category": "Cardio",
+        "sessionsCompleted": 2,
+        "weeklyGoal": 4,
+        "caloriesPerSession": 400
+    },
+    {
+        "id": 10,
+        "name": "Deadlift",
+        "category": "Strength",
+        "sessionsCompleted": 4,
+        "weeklyGoal": 3,
+        "caloriesPerSession": 250
+    }
+]

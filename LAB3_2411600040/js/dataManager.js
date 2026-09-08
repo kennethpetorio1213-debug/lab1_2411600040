@@ -9,19 +9,18 @@ const DataManager = (function () {
         searchQuery: ''
     };
 
-    function initializeData() {
-        exercises = [
-            { id: 1, name: 'Morning Run', category: 'Cardio', sessionsCompleted: 8, weeklyGoal: 10, caloriesPerSession: 320 },
-            { id: 2, name: 'Cycling', category: 'Cardio', sessionsCompleted: 4, weeklyGoal: 6, caloriesPerSession: 280 },
-            { id: 3, name: 'Bench Press', category: 'Strength', sessionsCompleted: 3, weeklyGoal: 4, caloriesPerSession: 180 },
-            { id: 4, name: 'Squats', category: 'Strength', sessionsCompleted: 2, weeklyGoal: 4, caloriesPerSession: 220 },
-            { id: 5, name: 'Plank', category: 'Core', sessionsCompleted: 5, weeklyGoal: 5, caloriesPerSession: 90 },
-            { id: 6, name: 'Sit-Ups', category: 'Core', sessionsCompleted: 1, weeklyGoal: 5, caloriesPerSession: 80 },
-            { id: 7, name: 'Yoga', category: 'Flexibility', sessionsCompleted: 3, weeklyGoal: 3, caloriesPerSession: 150 },
-            { id: 8, name: 'Stretching', category: 'Flexibility', sessionsCompleted: 1, weeklyGoal: 4, caloriesPerSession: 60 },
-            { id: 9, name: 'Swimming', category: 'Cardio', sessionsCompleted: 2, weeklyGoal: 4, caloriesPerSession: 400 },
-            { id: 10, name: 'Deadlift', category: 'Strength', sessionsCompleted: 1, weeklyGoal: 3, caloriesPerSession: 250 }
-        ];
+    async function initializeData() {
+        try {
+            const response = await fetch('api/exercises.php');
+            if (!response.ok) throw new Error('Network response was not ok');
+            exercises = await response.json();
+        } catch (error) {
+            console.error('Failed to fetch exercises from API, using fallback data:', error);
+            exercises = [
+                { id: 1, name: 'Morning Run', category: 'Cardio', sessionsCompleted: 8, weeklyGoal: 10, caloriesPerSession: 320 },
+                { id: 2, name: 'Cycling', category: 'Cardio', sessionsCompleted: 4, weeklyGoal: 6, caloriesPerSession: 280 }
+            ];
+        }
         return exercises;
     }
 
@@ -136,9 +135,36 @@ const DataManager = (function () {
         document.body.removeChild(link);
     }
 
-    function simulateSessionUpdate() {
+    // Sends an updated session count to the PHP backend and updates local cache
+    async function updateSessionOnServer(id, newSessionsCompleted) {
+        try {
+            const response = await fetch('api/exercises.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id, sessionsCompleted: newSessionsCompleted })
+            });
+
+            if (!response.ok) throw new Error('Failed to update on server');
+
+            const result = await response.json();
+
+            const localExercise = exercises.find(ex => ex.id === id);
+            if (localExercise) {
+                localExercise.sessionsCompleted = newSessionsCompleted;
+            }
+
+            return result.updated;
+        } catch (error) {
+            console.error('Error updating session on server:', error);
+            return null;
+        }
+    }
+
+    async function simulateSessionUpdate() {
         const randomIndex = Math.floor(Math.random() * exercises.length);
-        exercises[randomIndex].sessionsCompleted += 1;
+        const exercise = exercises[randomIndex];
+        const newCount = exercise.sessionsCompleted + 1;
+        await updateSessionOnServer(exercise.id, newCount);
         return exercises[randomIndex];
     }
 
@@ -146,6 +172,7 @@ const DataManager = (function () {
         initializeData, getExercises, getExerciseById, getExercisesByCategory,
         getBehindGoalExercises, getGoalStatistics, getCategorySummary,
         filterByCategory, filterByStatus, filterByCaloriesRange, searchExercises,
-        applyFilters, resetFilters, exportToCSV, downloadCSV, simulateSessionUpdate
+        applyFilters, resetFilters, exportToCSV, downloadCSV,
+        updateSessionOnServer, simulateSessionUpdate
     };
 })();

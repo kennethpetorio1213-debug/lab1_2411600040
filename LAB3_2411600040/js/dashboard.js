@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn !== 'true') {
         window.location.href = 'index.html';
@@ -8,11 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const username = localStorage.getItem('user') || 'User';
 
     updateGreeting(username);
-
     updateStatistics();
-
     populateActivityTable();
-
     setupLogout();
 
     const userNameSpan = document.getElementById('userName');
@@ -21,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Lab 4 additions
-    DataManager.initializeData();
+    await DataManager.initializeData();
     renderExerciseTable(DataManager.getExercises());
     renderAlerts();
     renderAllCharts();
@@ -256,8 +253,8 @@ function setupExportButton() {
 }
 
 function startRealtimeSimulation() {
-    setInterval(function() {
-        const updated = DataManager.simulateSessionUpdate();
+    setInterval(async function() {
+        const updated = await DataManager.simulateSessionUpdate();
         refreshDashboardData();
         showToastNotification(`${updated.name} session logged! Total sessions: ${updated.sessionsCompleted}`);
     }, 15000);
