@@ -1,4 +1,3 @@
-// charts.js - Handles Chart.js visualizations
 let categoryChart = null;
 let statusChart = null;
 let topExercisesChart = null;
