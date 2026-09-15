@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="card">
+<div class="card mb-4">
     <div class="card-header"><h5 class="mb-0">Recently Added Exercises</h5></div>
     <div class="card-body">
         <table class="table table-striped">
@@ -52,4 +52,45 @@
         </table>
     </div>
 </div>
+
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <div class="card chart-card shadow-hover">
+            <div class="card-header"><h6 class="mb-0">Calories Burned by Category</h6></div>
+            <div class="card-body" style="height: 280px;">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card chart-card shadow-hover">
+            <div class="card-header"><h6 class="mb-0">Goal Status Distribution</h6></div>
+            <div class="card-body" style="height: 280px;">
+                <canvas id="statusChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card chart-card shadow-hover">
+            <div class="card-header"><h6 class="mb-0">Top 5 Exercises</h6></div>
+            <div class="card-body" style="height: 280px;">
+                <canvas id="topExercisesChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.chartData = {
+        categoryLabels: @json($categoryData->keys()),
+        categoryValues: @json($categoryData->values()),
+        completed: {{ $completed }},
+        onTrack: {{ $onTrack }},
+        behindGoal: {{ $behindGoal }},
+        topNames: @json($topExercises->pluck('name')),
+        topCalories: @json($topExercises->pluck('calories'))
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="{{ asset('js/dashboard-charts.js') }}"></script>
 @endsection

@@ -32,6 +32,11 @@ body {
     color: var(--theme-primary);
 }
 
+.sidebar .nav-link.active {
+    background-color: var(--theme-primary);
+    color: #ffffff;
+}
+
 .stat-card {
     border: none;
     border-radius: 12px;
@@ -60,4 +65,25 @@ body {
 .btn-primary:hover {
     background-color: #423f4c;
     border-color: #423f4c;
+}
+
+.login-page {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    min-height: 100vh;
+}
+
+.login-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.login-card .card-header {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
+    border-bottom: none;
+}
+
+.chart-card .card-body {
+    position: relative;
 }

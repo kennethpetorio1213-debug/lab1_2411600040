@@ -33,8 +33,14 @@
         <div class="row">
             <nav class="col-md-3 col-lg-2 bg-light sidebar vh-100 p-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('exercises.index') }}">Exercise Library</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('exercises.*') ? 'active' : '' }}" href="{{ route('exercises.index') }}">Exercise Library</a></li>
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="nav-link text-danger border-0 bg-transparent w-100 text-start">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
