@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Morning Run",
         "category": "Cardio",
-        "sessionsCompleted": 8,
+        "sessionsCompleted": 9,
         "weeklyGoal": 10,
         "caloriesPerSession": 320
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "name": "Cycling",
         "category": "Cardio",
-        "sessionsCompleted": 4,
+        "sessionsCompleted": 7,
         "weeklyGoal": 6,
         "caloriesPerSession": 280
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "name": "Bench Press",
         "category": "Strength",
-        "sessionsCompleted": 3,
+        "sessionsCompleted": 4,
         "weeklyGoal": 4,
         "caloriesPerSession": 180
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "name": "Squats",
         "category": "Strength",
-        "sessionsCompleted": 2,
+        "sessionsCompleted": 3,
         "weeklyGoal": 4,
         "caloriesPerSession": 220
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "name": "Plank",
         "category": "Core",
-        "sessionsCompleted": 5,
+        "sessionsCompleted": 8,
         "weeklyGoal": 5,
         "caloriesPerSession": 90
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "name": "Sit-Ups",
         "category": "Core",
-        "sessionsCompleted": 1,
+        "sessionsCompleted": 2,
         "weeklyGoal": 5,
         "caloriesPerSession": 80
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "name": "Yoga",
         "category": "Flexibility",
-        "sessionsCompleted": 3,
+        "sessionsCompleted": 4,
         "weeklyGoal": 3,
         "caloriesPerSession": 150
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "name": "Stretching",
         "category": "Flexibility",
-        "sessionsCompleted": 1,
+        "sessionsCompleted": 3,
         "weeklyGoal": 4,
         "caloriesPerSession": 60
     },
