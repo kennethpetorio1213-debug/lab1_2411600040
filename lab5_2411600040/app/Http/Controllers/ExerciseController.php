@@ -7,9 +7,23 @@ use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $exercises = Exercise::orderBy('name')->get();
+        $query = Exercise::query();
+
+        if ($request->filled('category') && $request->category !== 'all') {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%')
+                  ->orWhere('sku', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        $exercises = $query->orderBy('name')->get();
+
         return view('exercises.index', compact('exercises'));
     }
 

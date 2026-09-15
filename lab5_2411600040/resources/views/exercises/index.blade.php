@@ -7,6 +7,32 @@
     <a href="{{ route('exercises.create') }}" class="btn btn-primary">Add Exercise</a>
 </div>
 
+<div class="card filter-card mb-4">
+    <div class="card-body">
+        <form action="{{ route('exercises.index') }}" method="GET" class="row g-3 align-items-end">
+            <div class="col-md-4">
+                <label class="form-label">Category</label>
+                <select name="category" class="form-select">
+                    <option value="all">All Categories</option>
+                    @foreach (['Cardio','Strength','Core','Flexibility'] as $cat)
+                    <option value="{{ $cat }}" {{ request('category') === $cat ? 'selected' : '' }}>{{ $cat }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Search</label>
+                <input type="text" name="search" class="form-control" placeholder="Search by name or code..." value="{{ request('search') }}">
+            </div>
+            <div class="col-md-2 d-flex gap-2">
+                <button type="submit" class="btn btn-primary w-100">Apply</button>
+                @if (request('category') || request('search'))
+                <a href="{{ route('exercises.index') }}" class="btn btn-outline-secondary">Reset</a>
+                @endif
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="card">
     <div class="card-body">
         <table class="table table-striped table-hover">
@@ -21,7 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($exercises as $exercise)
+                @forelse ($exercises as $exercise)
                 <tr>
                     <td>{{ $exercise->name }}</td>
                     <td>{{ $exercise->category }}</td>
@@ -42,7 +68,9 @@
                         </form>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr><td colspan="6" class="text-center text-muted">No exercises found matching your filters.</td></tr>
+                @endforelse
             </tbody>
         </table>
     </div>

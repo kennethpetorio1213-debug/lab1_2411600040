@@ -27,7 +27,7 @@
         "id": 4,
         "name": "Squats",
         "category": "Strength",
-        "sessionsCompleted": 3,
+        "sessionsCompleted": 4,
         "weeklyGoal": 4,
         "caloriesPerSession": 220
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "name": "Plank",
         "category": "Core",
-        "sessionsCompleted": 8,
+        "sessionsCompleted": 9,
         "weeklyGoal": 5,
         "caloriesPerSession": 90
     },

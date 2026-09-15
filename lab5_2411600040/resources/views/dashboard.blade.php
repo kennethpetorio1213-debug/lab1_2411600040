@@ -45,20 +45,6 @@
 </div>
 @endif
 
-<div class="card mb-4">
-    <div class="card-header"><h5 class="mb-0">Recently Added Exercises</h5></div>
-    <div class="card-body">
-        <table class="table table-striped">
-            <thead><tr class="border-accent"><th>Name</th><th>Category</th><th>Added</th></tr></thead>
-            <tbody>
-                @foreach ($recentExercises as $ex)
-                <tr><td>{{ $ex->name }}</td><td>{{ $ex->category }}</td><td>{{ $ex->created_at->diffForHumans() }}</td></tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-
 <div class="row mb-4">
     <div class="col-md-4 mb-3">
         <div class="card chart-card shadow-hover">
@@ -83,6 +69,20 @@
                 <canvas id="topExercisesChart"></canvas>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header"><h5 class="mb-0">Recently Added Exercises</h5></div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead><tr class="border-accent"><th>Name</th><th>Category</th><th>Added</th></tr></thead>
+            <tbody>
+                @foreach ($recentExercises as $ex)
+                <tr><td>{{ $ex->name }}</td><td>{{ $ex->category }}</td><td>{{ $ex->created_at->diffForHumans() }}</td></tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 
