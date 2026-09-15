@@ -39,6 +39,12 @@
     </div>
 </div>
 
+@if ($behindGoal > 0)
+<div class="alert alert-warning mb-4">
+    ⚠️ {{ $behindGoal }} exercise(s) are behind on weekly goal. <a href="{{ route('exercises.index') }}">View Exercise Library</a>
+</div>
+@endif
+
 <div class="card mb-4">
     <div class="card-header"><h5 class="mb-0">Recently Added Exercises</h5></div>
     <div class="card-body">
