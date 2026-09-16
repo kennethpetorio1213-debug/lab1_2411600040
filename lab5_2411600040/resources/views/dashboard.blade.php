@@ -76,10 +76,10 @@
     <div class="card-header"><h5 class="mb-0">Recently Added Exercises</h5></div>
     <div class="card-body">
         <table class="table table-striped">
-            <thead><tr class="border-accent"><th>Name</th><th>Category</th><th>Added</th></tr></thead>
+            <thead><tr class="border-accent"><th>Name</th><th>Category</th><th>Updated</th></tr></thead>
             <tbody>
                 @foreach ($recentExercises as $ex)
-                <tr><td>{{ $ex->name }}</td><td>{{ $ex->category }}</td><td>{{ $ex->created_at->diffForHumans() }}</td></tr>
+                <tr><td>{{ $ex->name }}</td><td>{{ $ex->category }}</td><td>{{ $ex->created_at->format('Y-m-d H:i') }}</td></tr>
                 @endforeach
             </tbody>
         </table>
