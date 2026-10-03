@@ -1,4 +1,27 @@
+function updateGreeting() {
+    const greetingElement = document.getElementById('greeting');
+    if (!greetingElement) return;
+
+    const username = greetingElement.dataset.username;
+    const hour = new Date().getHours();
+    let timeOfDay = '';
+
+    if (hour >= 5 && hour < 12) {
+        timeOfDay = 'Good Morning';
+    } else if (hour >= 12 && hour < 17) {
+        timeOfDay = 'Good Afternoon';
+    } else if (hour >= 17 && hour < 21) {
+        timeOfDay = 'Good Evening';
+    } else {
+        timeOfDay = 'Good Night';
+    }
+
+    greetingElement.textContent = `${timeOfDay}, ${username}!`;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    updateGreeting();
+
     const data = window.chartData;
 
     new Chart(document.getElementById('categoryChart'), {

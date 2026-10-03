@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<h2 class="pb-2 mb-3 border-bottom greeting-divider">Good Day, {{ Auth::user()->name }}!</h2>
+<h2 id="greeting" class="pb-2 mb-3 border-bottom greeting-divider" data-username="{{ Auth::user()->name }}">Good Day, {{ Auth::user()->name }}!</h2>
 
 <div class="row mb-4">
     <div class="col-md-3 mb-3">
